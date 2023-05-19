@@ -1,0 +1,56 @@
+[
+    {
+        "id": 4180439,
+        "city": "Atlanta",
+        "state": "GA",
+        "country": "US"
+    },
+    {
+        "id": 5419384,
+        "city": "Denver",
+        "state": "CO",
+        "country": "US"
+    },
+    {
+        "id": 5809844,
+        "city": "Seattle",
+        "state": "WA",
+        "country": "US"
+    },
+    {
+        "id": 5391811,
+        "city": "San Diego",
+        "state": "CA",
+        "country": "US"
+    },
+    {
+        "id": 5391959,
+        "city": "San Francisco",
+        "state": "CA",
+        "country": "US"
+    },
+    {
+        "id": 4167147,
+        "city": "Orlando",
+        "state": "FL",
+        "country": "US"
+    },
+    {
+        "id": 5128638,
+        "city": "New York",
+        "state": "NY",
+        "country": "US"
+    },
+    {
+        "id": 4887398,
+        "city": "Chicago",
+        "state": "IL",
+        "country": "US"
+    },
+    {
+        "id": 4671654,
+        "city": "Austin",
+        "state": "TX",
+        "country": "US"
+    }
+]
