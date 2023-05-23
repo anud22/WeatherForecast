@@ -6,9 +6,6 @@ $(document).ready(function () {
     var userForm = $('#user-form');
     var searchHistoryContainer = $('.searchHistory-container');
 
-
-
-
     var getCityDetails = function (city) {
         return fetch('cityList.json')
             .then(response => response.json())
@@ -51,11 +48,10 @@ $(document).ready(function () {
 
     var weatherDetails = function (url) {
         return fetch(url).then(response => getAPIResponse(response)).then(data => {
-            console.log(data);
             var city = data.city.name;
             var detail = {};
             var details = [];
-            var date = data.list[0].dt_txt.split(" ")[0];
+            var date = dayjs(data.list[0].dt_txt).format("M/DD/YYYY HH:mm:ss");
             detail.date = date;
             detail.temp = data.list[0].main.temp;
             detail.humidity = data.list[0].main.humidity;
@@ -64,7 +60,7 @@ $(document).ready(function () {
             details.push(detail);
             detail = {};
             for (var i = 1; i < data.list.length; ++i) {
-                var date = data.list[i].dt_txt.split(" ")[0];
+                var date = dayjs(data.list[i].dt_txt).format("M/DD/YYYY HH:mm:ss");
                 if (data.list[i].dt_txt.includes('12:00:00')) {
                     detail.date = date;
                     detail.temp = data.list[i].main.temp;
@@ -76,7 +72,6 @@ $(document).ready(function () {
                 }
 
             }
-            console.log(details);
             var futureWeather = $('.5day-weather');
             futureWeather.empty();
             var currWeather = $('.current-weather');
@@ -89,8 +84,8 @@ $(document).ready(function () {
                 var iconUrl = iconBaseUrl + details[i].icon + '.png';
                 var weatherIcon = $('<img>').attr('src', iconUrl);
                 var weatherIconFuture = $('<img class="w-25 h-25">').attr('src', iconUrl);
-                var cityDate = $('<h2>' + city + ' (' + details[i].date + ') </h2>');
-                var date = $('<h3 class=mb-3>' + details[i].date + '</h3>');
+                var cityDate = $('<h3>' + city + ' (' + details[i].date + ') </h3>');
+                var date = $('<h5 class=mb-3>' + details[i].date + '</h4>');
                 var temp = $('<h5 class=mb-3> Temp: ' + details[i].temp + ' \u00B0F</h5>');
                 var wind = $('<h5 class=mb-3> Wind: ' + details[i].wind + ' MPH</h5>');
                 var humidity = $('<h5 class=mb-5> Humidity: ' + details[i].humidity + ' %</h5>');
@@ -108,7 +103,6 @@ $(document).ready(function () {
                     card.append(temp);
                     card.append(wind);
                     card.append(humidity);
-
                 }
             }
             return city;
@@ -127,7 +121,6 @@ $(document).ready(function () {
 
         getCityDetails(city)
             .then(results => {
-                console.log('City details:', results);
                 var cityDetails = results[0];
                 if (cityDetails === undefined || cityDetails === null) {
                     alert('No details found for this city. Please add some other city');
@@ -148,9 +141,7 @@ $(document).ready(function () {
                 return baseAPIUrl;
             }).then(url => weatherDetails(url));
         $('#city').val('');
-
     }
-
 
     userForm.on('submit', displayWeather);
     searchHistoryContainer.on('click', '.btn', function (event) {
