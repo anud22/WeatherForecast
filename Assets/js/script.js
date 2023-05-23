@@ -25,7 +25,29 @@ var getAPIResponse = function (response) {
         throw new Error(response.statusText);
     }
 }
+var saveToLocalStorage = function (city) {
+    var list = JSON.parse(localStorage.getItem('searchedCities')) || [];
+    if (!list.includes(city.trim())) {
+        list.push(city.trim());
+    }
+    localStorage.setItem('searchedCities', JSON.stringify(list));
+}
 
+var saveAndDisplaySearchHistory = function (city) {
+    saveToLocalStorage(city);
+    displaySearchHistory();
+}
+
+var displaySearchHistory = function () {
+    var cityListLS = JSON.parse(localStorage.getItem('searchedCities')) || [];
+    $.each(cityListLS, function (index, cityName) {
+        var cityDiv = searchHistoryContainer.find('#' + cityName);
+        if (cityDiv.length === 0) {
+            var button = $('<button id="' + cityName + '" class="btn btn-block btn-secondary text-right w-20 mb-3"> ' + cityName + '</button>');
+            searchHistoryContainer.append(button);
+        }
+    })
+}
 
 var weatherDetails = function (url) {
     return fetch(url).then(response => getAPIResponse(response)).then(data => {
@@ -130,5 +152,6 @@ var displayWeather = function (event) {
 
 
 userForm.on('submit', displayWeather);
+
 displaySearchHistory();
 });
