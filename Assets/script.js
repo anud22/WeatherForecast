@@ -7,7 +7,7 @@ $(document).ready(function () {
     var searchHistoryContainer = $('.searchHistory-container');
 
     var getCityDetails = function (city) {
-        return fetch('assets/cityList.json')
+        return fetch('Assets/cityList.json')
             .then(response => response.json())
             .then(data => {
                 var results = data.filter(item => item.city === city);
@@ -38,7 +38,7 @@ $(document).ready(function () {
     var displaySearchHistory = function () {
         var cityListLS = JSON.parse(localStorage.getItem('searchedCities')) || [];
         $.each(cityListLS, function (index, cityName) {
-            var cityDiv = searchHistoryContainer.find('#' + cityName);
+            var cityDiv = searchHistoryContainer.find('button:contains(' + cityName + ')');
             if (cityDiv.length === 0) {
                 var button = $('<button id="' + cityName + '" class="btn btn-block btn-secondary text-right w-20 mb-3"> ' + cityName + '</button>');
                 searchHistoryContainer.append(button);
