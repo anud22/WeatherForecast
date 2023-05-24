@@ -7,7 +7,7 @@ $(document).ready(function () {
     var searchHistoryContainer = $('.searchHistory-container');
 
     var getCityDetails = function (city) {
-        return fetch('Assets/cityList.json')
+        return fetch('asset/cityList.json')
             .then(response => response.json())
             .then(data => {
                 var results = data.filter(item => item.city === city);
