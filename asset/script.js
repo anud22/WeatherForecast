@@ -79,7 +79,7 @@ $(document).ready(function () {
             currWeather.addClass('border border-dark');
             var heading = $('#days');
             heading.text('5-Day Forecast');
-            var iconBaseUrl = "http://openweathermap.org/img/wn/";
+            var iconBaseUrl = "https://openweathermap.org/img/wn/";
             for (var i = 0; i < details.length; ++i) {
                 var iconUrl = iconBaseUrl + details[i].icon + '.png';
                 var weatherIcon = $('<img>').attr('src', iconUrl);
@@ -111,7 +111,7 @@ $(document).ready(function () {
 
     var displayWeather = function (event) {
         var baseAPIUrl = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&units=Imperial&appid=" + apiKey;
-        var geoAPIUrl = "http://api.openweathermap.org/geo/1.0/direct?q={search}&appid=" + apiKey;
+        var geoAPIUrl = "https://api.openweathermap.org/geo/1.0/direct?q={search}&appid=" + apiKey;
         event.preventDefault();
         var city = $('#city').val().trim();
         if (!city) {
