@@ -34,7 +34,7 @@ Refactored code by accomplishing following tasks -
 [Link of Deployed app ](https://anud22.github.io/workdayScheduler/)
 
 ### Screenshot
-![Weather Forecast](/Assets/app.png)
+![Weather Forecast](/asset/app.png)
 
 ### References
 [msdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
