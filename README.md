@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-#### The project creates a Weather Dashboard application that allows a user to check the today's weather and 5-day forecast for any city
+#### The project creates a Weather Dashboard that allows a user to check today's weather and 5-day forecast for any city
 <br>
 <br>
 
@@ -34,7 +34,7 @@ Refactored code by accomplishing following tasks -
 [Link of Deployed app ](https://anud22.github.io/workdayScheduler/)
 
 ### Screenshot
-[Weather Forecast]()
+![Weather Forecast](/assets/app.png)
 
 ### References
 [msdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
