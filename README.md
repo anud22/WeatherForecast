@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-#### The project creates a Weather Dashboard that allows a user to check today's weather and 5-day forecast for any city
+#### The project creates a Weather Dashboard that allows a user to check today's weather and 5-day forecast for these cities - San Diego, San Francisco, Orlando, New York, Chicago, Austin, Atlanta, Denver, Seattle 
 <br>
 <br>
 
